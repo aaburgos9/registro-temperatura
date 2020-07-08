@@ -1,0 +1,116 @@
+
+<mat-horizontal-stepper #stepper>
+  <mat-step >
+    <ng-template matStepLabel>Registro Covid-19</ng-template>
+      <div class="card">
+        <samp style="color: darkslategray;">
+          <h2> Esta heramienta ayudara a las empresas a comprender qué hacer a continuacion con respecto al COVID-19.</h2>
+          Autorizo a Suramericana SA. y a mi empleador e\ lralamiemo de mis dams personales, incluyendo ‘05 de salud que son sensibles, con la
+        ﬁnalidad de desarmHal acciones de promocié ,prevenmon, lralarmenlo para la geslién de nesgo en salud y/o lreme a la propagacién, contagwo y
+        control de comm 9, acolde con la nolmado por el Ministerlo de Samd y Ploleccién Sacral y las dema’s amoridades compaemes, y para las
+        dema‘s ﬁnalrdades que se encuenuan es‘ablecidas en la politica de privacidad que puede ser consunaua en www.5uramelicana,com donde
+        adema’s se encuenlran los canales de contacto, y la (Mme de ejercer mis derechos a revocar la amorizacion, comer, actualizar, reclmcar y
+        supnmir rm mlolmacién.
+
+        Sera' puslble compamr mformamdn can dwsuntas enudades pﬂbhcas (del mvel central, descemrallzadas y de vIgIIancIa y cnnlrcl. y dema’s
+        amundades admlnlstratlvas y jurlsdmclona‘es). para Iomar acclones freme a la propagamdn. contaglo y Central de COVlDr19
+
+        Se ermende pol Halamwenlo de dates, \a «acuuad que tendra'n suramencana S.A y e empleador de almacenar, compamr, uulizar, procesar,
+        Iecolectal, dwulgar, (Ianslerir, transmit", mlolmacién relacionada con el estado de salud, en cumplimlemo de las dwsposiciones legale
+        </samp>
+    </div>
+
+    <div>
+      <button  class="button" mat-button matStepperNext>Si,Autorizo</button>
+    </div>
+  </mat-step>
+
+  <mat-step [stepControl]="form">
+    <form [formGroup]="form">
+      <ng-template matStepLabel>informacion de contacto</ng-template>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo Documento</mat-label>
+        <mat-select formControlName="tipoDocumento">
+          <mat-option  *ngFor="let tipo of tipos" [value]="tipo.value">
+            {{tipo.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+<br>
+       <mat-form-field>
+        <mat-label>Documento</mat-label>
+        <input matInput placeholder="Documento"  type="number" formControlName="documento" required>
+      </mat-form-field>
+<br>
+      <mat-form-field>
+        <mat-label> Nombre</mat-label>
+        <input matInput placeholder="Nombre Completo" formControlName="nombre" required>
+      </mat-form-field>
+
+      <div>
+        <button class="button" mat-button matStepperNext> Siguiente </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="form">
+    <form [formGroup]="form">
+      <ng-template matStepLabel>Informacion general</ng-template>
+
+
+        <mat-label style="text-align-last: center;"> <h2> ¿Has tenido alguno de los siguientes sintomas en las últimas 24 horas? </h2></mat-label>
+
+      <mat-radio-group formControlName="dolorGarganta" aria-label="Select an option">
+        <hr>
+        <p>¿Tienes dolor de garganta?</p>
+        <mat-radio-button  value="si">si</mat-radio-button>
+        <mat-radio-button  value="no">no</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-radio-group formControlName="malestarGeneral" aria-label="Select an option">
+        <hr>
+        <p>¿Tienes malestar general o en los huesos?</p>
+        <mat-radio-button  value="si">si</mat-radio-button>
+        <mat-radio-button  value="no">no</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-radio-group formControlName="fiebre" aria-label="Select an option">
+        <hr>
+        <p>¿Tienes Fiebre ?(mayor 38°C, medida con termometro)</p>
+        <mat-radio-button  value="si">si</mat-radio-button>
+        <mat-radio-button value="no">no</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-radio-group  formControlName="tos"aria-label="Select an option">
+        <hr>
+        <p>¿Tienes tos seca y persitente?</p>
+        <mat-radio-button value="si">si</mat-radio-button>
+        <mat-radio-button  value="no">no</mat-radio-button>
+      </mat-radio-group>
+
+       <mat-radio-group formControlName="dificultadRespirar" aria-label="Select an option">
+        <hr>
+        <p>¿Tienes dificultad a respirar de inicio reciente?</p>
+        <mat-radio-button value="si">si</mat-radio-button>
+        <mat-radio-button value="no">no</mat-radio-button>
+      </mat-radio-group>
+
+      <div>
+        <button class="button" mat-button matStepperPrevious>Atras</button>
+        <button class="btn" mat-button matStepperNext>Siguente</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel></ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button class="button" mat-button matStepperPrevious>Atras</button>
+      <button class="btn" mat-button (click)="create()">Finalizar</button>
+    </div>
+  </mat-step>
+
+</mat-horizontal-stepper>
