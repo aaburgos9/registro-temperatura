@@ -15,4 +15,8 @@ export class EmpleadoService {
   addRegistro(empleado: Empleados){
     return this.http.post<Empleados>(this.url, empleado);
   }
+
+  getEmpleado(){
+    return this.http.get<Empleados[]>(this.url);
+  }
 }
